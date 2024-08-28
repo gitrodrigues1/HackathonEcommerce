@@ -6,7 +6,7 @@ body:
 - type: markdown
   attributes:
     value: "Por favor descreva abaixo toda informação sobre a tarefa"
-- type: text area
+- type: textarea
   id: description
   attributes:
     label: Descreva a tarefa
