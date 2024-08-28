@@ -1,4 +1,4 @@
-name: "📖 Backend's History Form"
+name: "📖 History Form"
 description: Project's form to create a user's history
 title: "[Digite o Título da História]"
 labels: [':rocket:  feature']
@@ -16,7 +16,7 @@ body:
   attributes:
     label: "Possui detalhes ? Digite aqui toda informação que irá auxiliar no desenvolvimento da tarefa"
     placeholder: |
-      Entrar em contato com um desenvolvedor front-end para obter maiores detalhes sobre esta tarefa. 
+      Entrar em contato com xxxx para obter maiores detalhes sobre esta tarefa. 
 - type: textarea
   id: steps
   attributes:
