@@ -3,14 +3,14 @@ description: Project History
 title: "[History]"
 labels: ["feature"]
 body:
-  - type: markdown
-    attributes:
-      value: Por favor descreva abaixo toda informação sobre a tarefa
-  - type: text area
-    id: description
-    attributes:
-      label: Descreva a tarefa
-      value: |
+- type: markdown
+  attributes:
+    value: Por favor descreva abaixo toda informação sobre a tarefa
+- type: text area
+  id: description
+  attributes:
+    label: Descreva a tarefa
+    value: |
         Como: [usuario do sistema], 
         Desejo: [autenticar no sistema]
         Motivo: [para poder realizar compras]
