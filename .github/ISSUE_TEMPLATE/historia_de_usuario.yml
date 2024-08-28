@@ -1,7 +1,7 @@
-name: "📖 History Form"
+name: "📖 Backend's History Form"
 description: Project's form to create a user's history
 title: "[Digite o Título da História]"
-labels: [':rocket:  feature', 'Area: Backend']
+labels: [':rocket:  feature']
 body:
 - type: textarea
   id: description
@@ -10,11 +10,21 @@ body:
     value: |
       Como [usuario do sistema], 
       Desejo [autenticar no sistema],
-      Para [para poder realizar compras]
+      Para [poder realizar compras]
 - type: textarea
   id: details
   attributes:
     label: "Possui detalhes ? Digite aqui toda informação que irá auxiliar no desenvolvimento da tarefa"
+    placeholder: |
+    Entrar em contato com um desenvolvedor front-end para obter maiores detalhes sobre esta tarefa. 
+- type: textarea
+  id: steps
+  attributes:
+    label: Informe aqui os passos para auxiliar no sucesso da tarefa 
+    placeholder: |
+      - [ ] {{ Passo 1}}
+      - [ ] {{ Passo 2}}
+      - [ ] {{ Passo 3}}
 - type: textarea
   id: acceptance
   attributes:
@@ -23,12 +33,5 @@ body:
       1. Quando clico na funcionalidade ela faz o que é esperado. 
       2. Se os dados estiverem inválidos, eu verei um mensagem de erro.
       3. Se um número muito grande resultados for exibido, deverá ser exibida a paginação.
-- type: textarea
-  id: steps
-  attributes:
-    label: steps
-    placeholder: |
-      - [ ] {{ Passo 1}}
-      - [ ] {{ Passo 2}}
-      - [ ] {{ Passo 3}}
+
 
