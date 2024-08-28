@@ -1,5 +1,5 @@
 name: "📖 History Form"
-description: Project History
+description: Project's form to create a user's history
 title: "[Digite o Título da História]"
 labels: "🚀 feature"
 body:
@@ -15,5 +15,21 @@ body:
   id: details
   attributes:
     label: "Possui detalhes ? Digite aqui toda informação que irá auxiliar no desenvolvimento da tarefa"
-  
-  
+- type: textarea
+  id: acceptance
+  attributes:
+    label: Critérios de Aceitação
+    value: |
+      1. Quando clico na funcionalidade ela faz o que é esperado. 
+      2. Se os dados estiverem inválidos, eu verei um mensagem de erro.
+      3. Se um número muito grande resultados for exibido, deverá ser exibida a paginação.
+- type: textarea
+  id: steps
+  attributes:
+    label: steps
+    placeholder: Digite aqui o passo a passo para auxiliar o desenvolvedor no sucesso da tarefa
+    value: |
+      - [ ] {{ Step 1}}
+      - [ ] {{ Step 2}}
+      - [ ] {{ Step 3}}
+
