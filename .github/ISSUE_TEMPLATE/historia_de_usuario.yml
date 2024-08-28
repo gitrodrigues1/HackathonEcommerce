@@ -1,16 +1,22 @@
-name: ":book: History Form"
+name: "📖 History Form"
 description: Project History
-title: "[History]"
-labels: ["feature"]
+title: "[Digite o Título da História]"
+labels: ["🚀 feature"]
 body:
 - type: markdown
   attributes:
-    value: "Por favor descreva abaixo toda informação sobre a tarefa"
+    value: "Descreva abaixo toda informação sobre a tarefa"
 - type: textarea
   id: description
   attributes:
-    label: Descreva a tarefa
+    label: Descreva abaixo toda informação sobre a tarefa
     value: |
       Como: [usuario do sistema], 
       Desejo: [autenticar no sistema]
       Motivo: [para poder realizar compras]
+- type: textarea
+  id: description
+  attributes:
+    label: "Possui detalhes ? Digite aqui toda informação que irá auxiliar no desenvolvimento da tarefa"
+  
+  
