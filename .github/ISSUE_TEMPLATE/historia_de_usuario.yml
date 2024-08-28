@@ -1,19 +1,17 @@
 name: "📖 History Form"
 description: Project History
+about: "Utilize este template para incluir novas features em hitórias de usuário"
 title: "[Digite o Título da História]"
-labels: ["🚀 feature"]
+labels: "🚀 feature"
 body:
-- type: markdown
-  attributes:
-    value: "Descreva abaixo toda informação sobre a tarefa"
 - type: textarea
   id: description
   attributes:
-    label: Descreva abaixo toda informação sobre a tarefa
+    label: Descreva abaixo informações sobre a tarefa
     value: |
-      Como: [usuario do sistema], 
-      Desejo: [autenticar no sistema]
-      Motivo: [para poder realizar compras]
+      Como [usuario do sistema], 
+      Desejo [autenticar no sistema],
+      Para [para poder realizar compras]
 - type: textarea
   id: details
   attributes:
