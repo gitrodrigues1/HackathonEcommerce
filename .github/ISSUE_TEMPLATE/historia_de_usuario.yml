@@ -15,7 +15,7 @@ body:
       Desejo: [autenticar no sistema]
       Motivo: [para poder realizar compras]
 - type: textarea
-  id: description
+  id: details
   attributes:
     label: "Possui detalhes ? Digite aqui toda informação que irá auxiliar no desenvolvimento da tarefa"
   
