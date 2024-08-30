@@ -10,9 +10,9 @@ const SingUpForm: React.FC<SignupFormProps> = ({ toggleForm }) => {
     return(
         <div className="wrapper">
             <form action="POST">
-                <h1>Sing up</h1>
+                <h1>Cadastre-se</h1>
                 <div className="input-box">
-                    <input type="text" placeholder="Username" required/>
+                    <input type="text" placeholder="Usuário" required/>
                     <FaUser className="icon" />
                 </div>
                 <div className="input-box">
@@ -20,16 +20,16 @@ const SingUpForm: React.FC<SignupFormProps> = ({ toggleForm }) => {
                     <MdEmail className="icon" />
                 </div>
                 <div className="input-box">
-                    <input type="password" placeholder="Password" required/>
+                    <input type="password" placeholder="Senha" required/>
                     <FaLock className="icon" />
                 </div>
                 <div className="input-box">
-                    <input type="password" placeholder="Confirm password" required/>
+                    <input type="password" placeholder="Confirme a senha" required/>
                     <FaLock className="icon" />
                 </div>
-                <button type="submit">Sing Up</button>
+                <button type="submit">Cadastre-se</button>
                 <div className="register-link">
-                    <p>Do you have an account? <a href="#" onClick={(e) => { e.preventDefault(); toggleForm(); }}>Login</a></p>
+                    <p>Você já tem uma conta? <a href="#" onClick={(e) => { e.preventDefault(); toggleForm(); }}>Login</a></p>
                 </div>
             </form>
         </div>
