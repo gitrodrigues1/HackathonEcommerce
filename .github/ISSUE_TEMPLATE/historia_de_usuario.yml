@@ -1,0 +1,37 @@
+name: "📖 History Form"
+description: Project's form to create a user's history
+title: "[Digite o Título da História]"
+labels: [':rocket:  feature']
+body:
+- type: textarea
+  id: description
+  attributes:
+    label: Descreva abaixo informações sobre a tarefa
+    value: |
+      Como [usuario do sistema], 
+      Desejo [autenticar no sistema],
+      Para [poder realizar compras]
+- type: textarea
+  id: details
+  attributes:
+    label: "Possui detalhes ? Digite aqui toda informação que irá auxiliar no desenvolvimento da tarefa"
+    placeholder: |
+      Entrar em contato com xxxx para obter maiores detalhes sobre esta tarefa. 
+- type: textarea
+  id: steps
+  attributes:
+    label: Informe aqui os passos para auxiliar no sucesso da tarefa 
+    placeholder: |
+      - [ ] {{ Passo 1}}
+      - [ ] {{ Passo 2}}
+      - [ ] {{ Passo 3}}
+- type: textarea
+  id: acceptance
+  attributes:
+    label: Critérios de Aceitação
+    placeholder: |
+      1. Quando clico na funcionalidade ela faz o que é esperado. 
+      2. Se os dados estiverem inválidos, eu verei um mensagem de erro.
+      3. Se um número muito grande resultados for exibido, deverá ser exibida a paginação.
+
+
