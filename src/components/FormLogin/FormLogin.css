@@ -25,7 +25,10 @@
     font-size: 1rem;
     color: #fff;
     padding: 20px 45px 20px 20px;
-}  .input-box input::placeholder {
+} .input-box input:focus {
+    border: 2px solid #FA9813;
+    color: #FA9813;
+} .input-box input::placeholder {
     color: #fff;
 } .input-box .icon {
     position: absolute;
@@ -59,6 +62,10 @@
     font-size: 1rem;
     color: #333;
     font-weight: 700;
+} .wrapper button:hover {
+    background: #FA9813;
+    color: #fff;
+    transition: .3s ease-in;
 } .wrapper .register-link {
     font-size: 0.906;
     text-align: center;
@@ -69,4 +76,6 @@
     font-weight: 600;
 } .register-link p a:hover {
     text-decoration: underline;
+    color: #FA9813;
+    transition: .3s ease-in;
 }
