@@ -2,7 +2,6 @@ package com.sushihub.ms_products.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.engine.jdbc.Size;
 
 @Table(name="product")
 @Entity(name="Product")
@@ -23,7 +22,7 @@ public class Product {
     private String price;
 
     @Enumerated(EnumType.STRING)
-    private Size size;
+    private ProductSize size;
 
     private boolean promotion;
 
