@@ -1,6 +1,6 @@
 import { FaUser, FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { Wrapper } from "./FormSingUp.style"; 
+import { Wrapper, InputBox, StyledBnt, Login } from "./FormSignUp.style"; 
 
 interface SignupFormProps {
     toggleForm: () => void;
@@ -11,26 +11,26 @@ const SingUpForm: React.FC<SignupFormProps> = ({ toggleForm }) => {
         <Wrapper>
             <form action="POST">
                 <h1>Cadastre-se</h1>
-                <div className="input-box">
+                <InputBox className="input-box">
                     <input type="text" placeholder="Usuário" required/>
                     <FaUser className="icon" />
-                </div>
-                <div className="input-box">
+                </InputBox>
+                <InputBox className="input-box">
                     <input type="text" placeholder="Email" required/>
                     <MdEmail className="icon" />
-                </div>
-                <div className="input-box">
+                </InputBox>
+                <InputBox className="input-box">
                     <input type="password" placeholder="Senha" required/>
                     <FaLock className="icon" />
-                </div>
-                <div className="input-box">
+                </InputBox>
+                <InputBox className="input-box">
                     <input type="password" placeholder="Confirme a senha" required/>
                     <FaLock className="icon" />
-                </div>
-                <button type="submit">Cadastre-se</button>
-                <div className="register-link">
+                </InputBox>
+                <StyledBnt type="submit">Cadastre-se</StyledBnt>
+                <Login>
                     <p>Você já tem uma conta? <a href="#" onClick={(e) => { e.preventDefault(); toggleForm(); }}>Login</a></p>
-                </div>
+                </Login>
             </form>
         </Wrapper>
     );

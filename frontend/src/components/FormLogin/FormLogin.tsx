@@ -1,5 +1,5 @@
 import { FaUser, FaLock } from "react-icons/fa";
-import { Wrapper } from "./FormLogin.style";
+import { Wrapper, InputBox, Remember, StyledBnt, Register } from "./FormLogin.style";
 
 interface LoginFormProps {
     toggleForm: () => void;
@@ -10,22 +10,21 @@ const LoginForm: React.FC<LoginFormProps> = ({ toggleForm }) => {
         <Wrapper>
             <form action="POST">
                 <h1>Login</h1>
-                <div className="input-box">
+                <InputBox>
                     <input type="text" placeholder="Usuário" required/>
                     <FaUser className="icon" />
-                </div>
-                <div className="input-box">
+                </InputBox>
+                <InputBox>
                     <input type="password" placeholder="Senha" required/>
                     <FaLock className="icon" />
-                </div>
-                <div className="remember-forgot">
-                    <label><input type="checkbox"/> Me lembre</label>
+                </InputBox>
+                <Remember>
                     <a href="#">Esqueceu a senha?</a>
-                </div>
-                <button type="submit">Login</button>
-                <div className="register-link">
+                </Remember>
+                <StyledBnt type="submit">Login</StyledBnt>
+                <Register>
                     <p>Não tem uma conta? <a href="#" onClick={(e) => { e.preventDefault(); toggleForm(); }}>Cadastre-se</a></p>
-                </div>
+                </Register>
             </form>
         </Wrapper>
     );

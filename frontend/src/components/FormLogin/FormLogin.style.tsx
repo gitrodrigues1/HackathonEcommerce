@@ -12,12 +12,19 @@ export const Wrapper = styled.div `
     & h1 {
         font-size: 2.25rem;
         text-align: center;
-    } & .input-box {
-        position: relative;
-        width: 100%;
-        height: 50px;
-        margin: 30px 0;
-    } & .input-box input {
+    }
+    @media screen and (max-width: 425px) {
+        & {
+            width: 100%;
+        }
+    }
+`
+export const InputBox = styled.div `
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    & input {
         width: 100%;
         height: 100%;
         background: transparent;
@@ -27,63 +34,62 @@ export const Wrapper = styled.div `
         font-size: 1rem;
         color: #fff;
         padding: 20px 45px 20px 20px;
-    } & .input-box input:focus {
+    } & input:focus {
         border: 2px solid #FA9813;
         color: #FA9813;
-    } & .input-box input::placeholder {
+    } & input::placeholder {
         color: #fff;
-    } & .input-box .icon {    
+    } & .icon {    
         position: absolute;
         top: 50%;
         right: 20px;
         transform: translateY(-50%);
         font-size: 1rem;
         color: #fff;
-    } & .remember-forgot {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.906;
-        margin: -15px 0 15px;
-    } & .remember-forgot label input {    
-        accent-color: #fff;
-        margin-right: 4px;
-    } & .remember-forgot a {
+    } & input:focus ~ .icon {
+        color: #FA9813;
+    }
+`
+export const Remember = styled.div `
+    display: flex;
+    font-size: 0.906;
+    margin: -15px 0 15px;
+    & a {
         color: #fff;
         text-decoration: none;
-    } & .remember-forgot a:hover {
+    } & a:hover {
         text-decoration: underline;
-    } & button {
-        width: 100%;
-        height: 45px;
-        background: #fff;
-        border: none;
-        outline: none;
-        border-radius: 40px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-        cursor: pointer;
-        font-size: 1rem;
-        color: #333;
-        font-weight: 700;
-    } & button:hover {
+    }
+`
+export const StyledBnt = styled.button `
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 700;
+    &:hover {
         background: #FA9813;
         color: #fff;
         transition: .3s ease-in;
-    } & .register-link {
-        font-size: 0.906;
-        text-align: center;
-        margin: 20px 0 15px;
-    } & .register-link p a {
+    } 
+`
+export const Register = styled.div `
+    font-size: 0.906;
+    text-align: center;
+    margin: 20px 0 15px;
+    & p a {
         color: #fff;
         text-decoration: none;
         font-weight: 600;
-    } & .register-link p a:hover {
+    } & p a:hover {
         text-decoration: underline;
         color: #FA9813;
         transition: .3s ease-in;
-    }
-    @media screen and (max-width: 425px) {
-        & {
-            width: 100%;
-        }
     }
 `
