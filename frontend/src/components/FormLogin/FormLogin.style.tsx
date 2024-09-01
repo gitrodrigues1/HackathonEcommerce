@@ -81,4 +81,9 @@ export const Wrapper = styled.div `
         color: #FA9813;
         transition: .3s ease-in;
     }
+    @media screen and (max-width: 425px) {
+        & {
+            width: 100%;
+        }
+    }
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div `
-    width: 420px;
+    width: 450px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(30px);
@@ -69,5 +69,10 @@ export const Wrapper = styled.div `
         text-decoration: underline;
         color: #FA9813;
         transition: .3s ease-in;
+    } 
+    @media screen and (max-width: 425px) {
+        & {
+            width: 100%;
+        }
     }
 `
