@@ -1,5 +1,5 @@
 import { FaUser, FaLock } from "react-icons/fa";
-import './FormLogin.css';
+import { Wrapper } from "./FormLogin.style";
 
 interface LoginFormProps {
     toggleForm: () => void;
@@ -7,7 +7,7 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({ toggleForm }) => {
     return(
-        <div className="wrapper">
+        <Wrapper>
             <form action="POST">
                 <h1>Login</h1>
                 <div className="input-box">
@@ -27,7 +27,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ toggleForm }) => {
                     <p>Não tem uma conta? <a href="#" onClick={(e) => { e.preventDefault(); toggleForm(); }}>Cadastre-se</a></p>
                 </div>
             </form>
-        </div>
+        </Wrapper>
     );
 };
 

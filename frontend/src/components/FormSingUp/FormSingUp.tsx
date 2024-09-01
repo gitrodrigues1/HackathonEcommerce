@@ -1,6 +1,6 @@
 import { FaUser, FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import './FormSingUp.css';
+import { Wrapper } from "./FormSingUp.style"; 
 
 interface SignupFormProps {
     toggleForm: () => void;
@@ -8,7 +8,7 @@ interface SignupFormProps {
 
 const SingUpForm: React.FC<SignupFormProps> = ({ toggleForm }) => {
     return(
-        <div className="wrapper">
+        <Wrapper>
             <form action="POST">
                 <h1>Cadastre-se</h1>
                 <div className="input-box">
@@ -32,7 +32,7 @@ const SingUpForm: React.FC<SignupFormProps> = ({ toggleForm }) => {
                     <p>Você já tem uma conta? <a href="#" onClick={(e) => { e.preventDefault(); toggleForm(); }}>Login</a></p>
                 </div>
             </form>
-        </div>
+        </Wrapper>
     );
 };
 
