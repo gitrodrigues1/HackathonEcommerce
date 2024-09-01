@@ -11,19 +11,19 @@ const SingUpForm: React.FC<SignupFormProps> = ({ toggleForm }) => {
         <Wrapper>
             <form action="POST">
                 <h1>Cadastre-se</h1>
-                <InputBox className="input-box">
+                <InputBox>
                     <input type="text" placeholder="Usuário" required/>
                     <FaUser className="icon" />
                 </InputBox>
-                <InputBox className="input-box">
+                <InputBox>
                     <input type="text" placeholder="Email" required/>
                     <MdEmail className="icon" />
                 </InputBox>
-                <InputBox className="input-box">
+                <InputBox>
                     <input type="password" placeholder="Senha" required/>
                     <FaLock className="icon" />
                 </InputBox>
-                <InputBox className="input-box">
+                <InputBox>
                     <input type="password" placeholder="Confirme a senha" required/>
                     <FaLock className="icon" />
                 </InputBox>
