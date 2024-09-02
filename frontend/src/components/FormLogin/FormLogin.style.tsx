@@ -9,7 +9,7 @@ export const Wrapper = styled.div `
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
-    & h1 {
+    h1 {
         font-size: 2.25rem;
         text-align: center;
     }
@@ -24,7 +24,7 @@ export const InputBox = styled.div `
     width: 100%;
     height: 50px;
     margin: 30px 0;
-    & input {
+    input {
         width: 100%;
         height: 100%;
         background: transparent;
@@ -34,19 +34,19 @@ export const InputBox = styled.div `
         font-size: 1rem;
         color: #fff;
         padding: 20px 45px 20px 20px;
-    } & input:focus {
+    } input:focus {
         border: 2px solid #FA9813;
         color: #FA9813;
-    } & input::placeholder {
+    } input::placeholder {
         color: #fff;
-    } & .icon {    
+    } .icon {    
         position: absolute;
         top: 50%;
         right: 20px;
         transform: translateY(-50%);
         font-size: 1rem;
         color: #fff;
-    } & input:focus ~ .icon {
+    } input:focus ~ .icon {
         color: #FA9813;
     }
 `
@@ -54,10 +54,10 @@ export const Remember = styled.div `
     display: flex;
     font-size: 0.906;
     margin: -15px 0 15px;
-    & a {
+    a {
         color: #fff;
         text-decoration: none;
-    } & a:hover {
+    } a:hover {
         text-decoration: underline;
     }
 `
@@ -83,11 +83,11 @@ export const Register = styled.div `
     font-size: 0.906;
     text-align: center;
     margin: 20px 0 15px;
-    & p a {
+    p a {
         color: #fff;
         text-decoration: none;
         font-weight: 600;
-    } & p a:hover {
+    } p a:hover {
         text-decoration: underline;
         color: #FA9813;
         transition: .3s ease-in;
