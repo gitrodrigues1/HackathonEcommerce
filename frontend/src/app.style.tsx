@@ -1,16 +1,26 @@
 import { createGlobalStyle } from 'styled-components'
 
+import onari from './assets/fonts/onari.otf'
+
 export const Reset = createGlobalStyle `
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    @font-face {
+        font-family: Onari;
+        src: url(${onari});
+        font-weight: light;
+        font-style: normal;
+    }
 
     * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        font-family: 'New Amsterdam', sans-serif;
+        list-style: none;
+        text-decoration: none;
     }
 
     body {
-        font-family: "Poppins", sans-serif;
+        font-family: "Roboto Condensed", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         display: flex;
@@ -18,5 +28,9 @@ export const Reset = createGlobalStyle `
         align-items: center;
         min-height: 100vh;
         background: #000;
+    }
+    
+    .container {
+        width: 80%;
     }
 `

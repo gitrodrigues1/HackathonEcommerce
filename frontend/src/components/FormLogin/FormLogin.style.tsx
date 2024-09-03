@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import { colors } from '../../variables/colors'
+import { typography } from '../../variables/typography'
+import { breakpoints } from '../../variables/breakpoints'
 
 export const Wrapper = styled.div `
     width: 420px;
@@ -6,14 +9,14 @@ export const Wrapper = styled.div `
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(30px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    color: #fff;
+    color: ${colors.white};
     border-radius: 10px;
     padding: 30px 40px;
     h1 {
-        font-size: 2.25rem;
+        font-size: ${typography['title-M']};
         text-align: center;
     }
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: ${breakpoints.mobile}) {
         & {
             width: 100%;
         }
@@ -31,23 +34,23 @@ export const InputBox = styled.div `
         outline: none;
         border: 2px solid rgba(255, 255, 255, .2);
         border-radius: 40px;
-        font-size: 1rem;
-        color: #fff;
+        font-size: ${typography['text-M']};
+        color: ${colors.white};
         padding: 20px 45px 20px 20px;
     } input:focus {
-        border: 2px solid #FA9813;
-        color: #FA9813;
+        border: 2px solid ${colors.yellowOrange};
+        color: ${colors.yellowOrange};
     } input::placeholder {
-        color: #fff;
+        color: ${colors.white};
     } .icon {    
         position: absolute;
         top: 50%;
         right: 20px;
         transform: translateY(-50%);
-        font-size: 1rem;
-        color: #fff;
+        font-size: ${typography['text-S']};
+        color: ${colors.white};
     } input:focus ~ .icon {
-        color: #FA9813;
+        color: ${colors.yellowOrange};
     }
 `
 export const Remember = styled.div `
@@ -55,7 +58,7 @@ export const Remember = styled.div `
     font-size: 0.906;
     margin: -15px 0 15px;
     a {
-        color: #fff;
+        color: ${colors.white};
         text-decoration: none;
     } a:hover {
         text-decoration: underline;
@@ -64,32 +67,32 @@ export const Remember = styled.div `
 export const StyledBnt = styled.button `
     width: 100%;
     height: 45px;
-    background: #fff;
+    background: ${colors.white};
     border: none;
     outline: none;
     border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: ${typography['text-M']};
     color: #333;
     font-weight: 700;
     &:hover {
-        background: #FA9813;
-        color: #fff;
+        background: ${colors.yellowOrange};
+        color: ${colors.white};
         transition: .3s ease-in;
     } 
 `
 export const Register = styled.div `
-    font-size: 0.906;
+    font-size: 0.906rem;
     text-align: center;
     margin: 20px 0 15px;
     p a {
-        color: #fff;
+        color: ${colors.white};
         text-decoration: none;
         font-weight: 600;
     } p a:hover {
         text-decoration: underline;
-        color: #FA9813;
+        color: ${colors.yellowOrange};
         transition: .3s ease-in;
     }
 `
