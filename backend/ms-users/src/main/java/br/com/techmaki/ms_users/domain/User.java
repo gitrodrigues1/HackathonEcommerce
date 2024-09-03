@@ -19,7 +19,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String role;
+    private UserRole role;
     private boolean active;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
