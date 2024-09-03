@@ -2,13 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 import onari from './assets/fonts/onari.otf'
 
-export const colors = {
-  black: '#191919',
-  white: '#fdfdfd',
-  yellowOrange: '#fa9813',
-  desertSand: '#e6cea8',
-}
-
 export const GlobalStyle = createGlobalStyle`
 
   @font-face {
@@ -22,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'New Amsterdam', sans-serif;
   list-style: none;
   text-decoration: none;
   }

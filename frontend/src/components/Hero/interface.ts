@@ -1,3 +1,3 @@
 export interface HeroProps {
-  variant?: 'orange' | 'black';
+  $variant?: 'orange' | 'black'
 }
