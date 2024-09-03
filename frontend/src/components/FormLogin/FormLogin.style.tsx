@@ -55,13 +55,15 @@ export const InputBox = styled.div `
 `
 export const Remember = styled.div `
     display: flex;
-    font-size: 0.906;
+    font-size: ${typography['link-S']};
     margin: -15px 0 15px;
     a {
         color: ${colors.white};
         text-decoration: none;
     } a:hover {
         text-decoration: underline;
+        color: ${colors.yellowOrange};
+        transition: all .5s;
     }
 `
 export const StyledBnt = styled.button `
@@ -73,7 +75,7 @@ export const StyledBnt = styled.button `
     border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
-    font-size: ${typography['text-M']};
+    font-size: ${typography['text-L']};
     color: #333;
     font-weight: 700;
     &:hover {
@@ -83,7 +85,7 @@ export const StyledBnt = styled.button `
     } 
 `
 export const Register = styled.div `
-    font-size: 0.906rem;
+    font-size: ${typography['link-S']};
     text-align: center;
     margin: 20px 0 15px;
     p a {
