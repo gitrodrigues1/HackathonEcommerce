@@ -1,8 +1,8 @@
-import Auth from './components/Auth/Auth';
+import AppRoutes from "./pages/routs";
 function App() {
   return (
     <>
-      <Auth/>
+      <AppRoutes />
     </>
   )
 }

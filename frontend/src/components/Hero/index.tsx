@@ -1,4 +1,4 @@
-import * as S from './style'
+import * as S from './styles'
 
 import banner from '../../assets/images/banner3.png'
 
