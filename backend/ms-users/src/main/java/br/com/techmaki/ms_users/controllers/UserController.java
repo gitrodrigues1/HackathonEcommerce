@@ -1,6 +1,6 @@
 package br.com.techmaki.ms_users.controllers;
 
-import br.com.techmaki.ms_users.domain.User;
+import br.com.techmaki.ms_users.domain.entities.User;
 import br.com.techmaki.ms_users.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
