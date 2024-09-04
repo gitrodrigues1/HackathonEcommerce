@@ -1,6 +1,6 @@
 package br.com.techmaki.ms_users.repository;
 
-import br.com.techmaki.ms_users.domain.User;
+import br.com.techmaki.ms_users.domain.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
