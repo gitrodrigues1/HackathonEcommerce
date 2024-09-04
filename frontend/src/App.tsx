@@ -1,15 +1,9 @@
-import Body from './components/Body'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import { GlobalStyle } from './styles'
+import AppRoutes from "./pages/Routs";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Header />
-      <Hero />
-      <Body />
+      <AppRoutes />
     </>
   )
 }

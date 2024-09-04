@@ -33,7 +33,7 @@ export const LeftSide = styled.div`
 
   ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
-    background-color: ${colors.darkGrey};
+    background-color: ${colors.black};
   }
 `
 
@@ -43,7 +43,7 @@ export const RightSide = styled.div`
   z-index: 2;
 
   @media (max-width: ${breakpoints.tablet}) {
-    background-color: ${colors.darkGrey};
+    background-color: ${colors.black};
   }
 `
 
