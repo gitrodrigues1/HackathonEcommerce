@@ -1,16 +1,23 @@
 package br.com.techmaki.ms_users.application.controllers;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import br.com.techmaki.ms_users.domain.entities.User;
 import br.com.techmaki.ms_users.infrastructure.database.repository.UserRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -41,6 +48,7 @@ public class UserController {
     @PostMapping("/subscribe")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         user.setPassword(encoder.encode(user.getPassword()));
+        user.setActive(true);
         repository.save(user);
         return ResponseEntity.ok(user);
     }

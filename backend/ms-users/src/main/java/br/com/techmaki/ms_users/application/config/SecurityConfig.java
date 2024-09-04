@@ -39,6 +39,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> {
                 auth.requestMatchers(HttpMethod.POST, "users/subscribe").permitAll();
                 auth.requestMatchers(HttpMethod.POST, "auth/token").permitAll();
+                auth.requestMatchers(HttpMethod.GET, "/users/**", "/products")
+                    .permitAll().anyRequest().authenticated();
             })
             .httpBasic(Customizer.withDefaults())
             .oauth2ResourceServer(conf -> conf.jwt(jwt -> jwt.decoder(jwtDecoder())))
