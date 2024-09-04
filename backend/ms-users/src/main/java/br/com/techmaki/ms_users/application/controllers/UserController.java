@@ -1,12 +1,15 @@
-package br.com.techmaki.ms_users.controllers;
+package br.com.techmaki.ms_users.application.controllers;
 
 import br.com.techmaki.ms_users.domain.entities.User;
-import br.com.techmaki.ms_users.repository.UserRepository;
+import br.com.techmaki.ms_users.infrastructure.database.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -14,6 +17,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserRepository repository;
+
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
@@ -33,8 +38,9 @@ public class UserController {
     }
 
     @Transactional
-    @PostMapping
+    @PostMapping("/subscribe")
     public ResponseEntity<User> createUser(@RequestBody User user) {
+        user.setPassword(encoder.encode(user.getPassword()));
         repository.save(user);
         return ResponseEntity.ok(user);
     }
@@ -51,6 +57,7 @@ public class UserController {
             userToUpdate.setEmail(user.getEmail());
             userToUpdate.setPassword(user.getPassword());
             userToUpdate.setRole(user.getRole());
+            userToUpdate.setUpdatedAt(LocalDateTime.now());
             repository.save(userToUpdate);
             return ResponseEntity.ok(userToUpdate);
         }
