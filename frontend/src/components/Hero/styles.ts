@@ -227,7 +227,7 @@ export const GridOverlay = styled.div`
     top: 0;
     right: 0;
     z-index: 0;
-    background: linear-gradient(to bottom, ${colors.darkGrey} 0%, ${colors.black} 80%);
+    background: ${colors.black};
     pointer-events: none;
     height: 100%;
     width: 100%;

@@ -6,7 +6,7 @@ import { breakpoints } from '../../variables/breakpoints'
 export const Wrapper = styled.div `
     width: 450px;
     background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid ${colors.darkGrey};
     backdrop-filter: blur(30px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: ${colors.white};
@@ -32,7 +32,7 @@ export const InputBox = styled.div `
         height: 100%;
         background: transparent;
         outline: none;
-        border: 2px solid rgba(255, 255, 255, .2);
+        border: 2px solid ${colors.darkGrey};
         border-radius: 40px;
         font-size: ${typography['text-M']};
         color: ${colors.white};
@@ -60,10 +60,10 @@ export const StyledBnt = styled.button `
     border: none;
     outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 10px ${colors.black};
     cursor: pointer;
     font-size: ${typography['text-L']};
-    color: #333;
+    color: ${colors.darkGrey};
     font-weight: 700;
     &:hover {
         background: ${colors.yellowOrange};

@@ -29,7 +29,7 @@ export const LeftSide = styled.div`
   justify-content: end;
   ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
-    background-color: ${colors.darkGrey};
+    background-color: ${colors.black};
   }
 `
 
@@ -38,7 +38,7 @@ export const RightSide = styled.div`
   justify-content: start;
   z-index: 2;
   @media (max-width: ${breakpoints.tablet}) {
-    background-color: ${colors.darkGrey};
+    background-color: ${colors.black};
   }
 `
 
