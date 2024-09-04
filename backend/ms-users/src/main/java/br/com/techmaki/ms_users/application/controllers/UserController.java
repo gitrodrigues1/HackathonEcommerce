@@ -1,19 +1,31 @@
-package br.com.techmaki.ms_users.controllers;
+package br.com.techmaki.ms_users.application.controllers;
 
-import br.com.techmaki.ms_users.domain.User;
-import br.com.techmaki.ms_users.repository.UserRepository;
-import jakarta.transaction.Transactional;
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import br.com.techmaki.ms_users.domain.entities.User;
+import br.com.techmaki.ms_users.infrastructure.database.repository.UserRepository;
+import jakarta.transaction.Transactional;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
     @Autowired
     private UserRepository repository;
+
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
@@ -33,8 +45,10 @@ public class UserController {
     }
 
     @Transactional
-    @PostMapping
+    @PostMapping("/subscribe")
     public ResponseEntity<User> createUser(@RequestBody User user) {
+        user.setPassword(encoder.encode(user.getPassword()));
+        user.setActive(true);
         repository.save(user);
         return ResponseEntity.ok(user);
     }
@@ -51,6 +65,7 @@ public class UserController {
             userToUpdate.setEmail(user.getEmail());
             userToUpdate.setPassword(user.getPassword());
             userToUpdate.setRole(user.getRole());
+            userToUpdate.setUpdatedAt(LocalDateTime.now());
             repository.save(userToUpdate);
             return ResponseEntity.ok(userToUpdate);
         }

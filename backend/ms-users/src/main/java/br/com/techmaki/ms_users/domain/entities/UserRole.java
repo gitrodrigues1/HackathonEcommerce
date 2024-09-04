@@ -1,4 +1,4 @@
-package br.com.techmaki.ms_users.domain;
+package br.com.techmaki.ms_users.domain.entities;
 
 import lombok.Getter;
 
