@@ -1,35 +1,37 @@
-import { FaUser, FaLock } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { Wrapper, InputBox, StyledBnt, Login } from "./FormSignUp.style"; 
-import { useState } from "react";
+import { useState } from "react"
+
+import { FaUser, FaLock } from "react-icons/fa"
+import { MdEmail } from "react-icons/md"
+
+import { Wrapper, InputBox, StyledBnt, Login } from "./FormSignUp.style"
 
 interface SignupFormProps {
-    toggleForm: () => void;
+  toggleForm: () => void
 }
 
 const SingUpForm: React.FC<SignupFormProps> = ({ toggleForm }) => {
-    interface Data {
-        username: string;
-        email: string;
-        password: any;
-        confirmPassword: any;
-    }
-    const [dataForm, setDataForm] = useState<Data>({
-        username: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
-    });
+  interface Data {
+      username: string;
+      email: string;
+      password: any;
+      confirmPassword: any;
+  }
+  const [dataForm, setDataForm] = useState<Data>({
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+  })
 
-    const handleChange = (event: any) => {
-        setDataForm((dataForm) => ({...dataForm, [event.target.name]: event.target.value}));
-    }
+  const handleChange = (event: any) => {
+      setDataForm((dataForm) => ({...dataForm, [event.target.name]: event.target.value}));
+  }
 
-    const handleSubmit = (event: any) => {
-        event.preventDefault()
-        // Validar dados e enviar formulário
-    }
-    return(
+  const handleSubmit = (event: any) => {
+      event.preventDefault()
+      // Validar dados e enviar formulário
+  }
+    return (
         <Wrapper>
             <form action="POST" onSubmit={handleSubmit}>
                 <h1>Cadastre-se</h1>
@@ -55,7 +57,7 @@ const SingUpForm: React.FC<SignupFormProps> = ({ toggleForm }) => {
                 </Login>
             </form>
         </Wrapper>
-    );
-};
+    )
+}
 
 export default SingUpForm;

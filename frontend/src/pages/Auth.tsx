@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import LoginForm from '../components/FormLogin/FormLogin.tsx';
-import SignUpForm from '../components/FormSignup/FormSignUp.tsx';
+import { useState } from 'react'
+
+import LoginForm from '../components/FormLogin/FormLogin.tsx'
+import SignUpForm from '../components/FormSignup/FormSignUp.tsx'
 
 const Auth: React.FC = () => {
-    const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true)
 
-    const toggleForm = () => {
-        setIsLogin(!isLogin);
-    };
+  const toggleForm = () => {
+      setIsLogin(!isLogin);
+  }
 
-    return (
-        <>
-            {isLogin ? (
-                <LoginForm toggleForm={toggleForm} />
-            ) : (
-                <SignUpForm toggleForm={toggleForm} />
-            )}
-        </>
-    );
-};
+  return (
+      <>
+          {isLogin ? (
+              <LoginForm toggleForm={toggleForm} />
+          ) : (
+              <SignUpForm toggleForm={toggleForm} />
+          )}
+      </>
+  )
+}
 
-export default Auth;
+export default Auth

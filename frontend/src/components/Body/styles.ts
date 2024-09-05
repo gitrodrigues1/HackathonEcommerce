@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 import { colors } from '../../variables/colors'
+import { breakpoints } from '../../variables/breakpoints'
 
 import convertPxToRem from '../../utils/convertPxToRem'
-import { breakpoints } from '../../variables/breakpoints'
 
 
 export const Container = styled.section`
@@ -58,6 +58,7 @@ export const SideContainer = styled.div`
 
   @media (max-width: ${breakpoints.desktop}) {
     width: 90%;
+    max-width: none;
   }
 `
 

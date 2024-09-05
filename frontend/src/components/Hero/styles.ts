@@ -13,10 +13,11 @@ import { HeroProps } from './interface'
 export const Container = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 2fr;
+  grid-template-rows: auto ${convertPxToRem(120)};
   width: 100%;
   min-height: 85vh;
   overflow: hidden;
+  background-color: ${colors.white};
 
   .side {
     display: flex;
@@ -37,7 +38,6 @@ export const Container = styled.section`
     min-height: 57vh;
   }
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: auto;
     grid-template-rows: 1fr ${convertPxToRem(300)};
@@ -50,7 +50,6 @@ export const LeftSide = styled.div`
   background-color: ${colors.white};
   justify-content: end;
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     background-color: ${colors.black};
     padding: ${convertPxToRem(100)} 0 ${convertPxToRem(24)};
@@ -64,7 +63,6 @@ export const RightSide = styled.div`
   background-color: ${colors.black};
   justify-content: start;
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     padding: ${convertPxToRem(24)} 0;
     justify-content: center;
@@ -85,12 +83,12 @@ export const SideContainer = styled.div`
     width: 90%;
   }
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     position: static;
     align-items: flex-start;
     justify-content: center;
     height: auto;
+    max-width: none;
   }
 `
 
@@ -112,7 +110,6 @@ export const Image = styled.img`
     transform: translate(1%, 30%);
   }
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     position: static;
     height: ${convertPxToRem(260)};
@@ -139,7 +136,6 @@ export const Content = styled.div`
     max-width: ${convertPxToRem(240)};
   }
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     position: static;
     display: flex;
@@ -167,7 +163,6 @@ export const Title = styled.h1`
     font-size: ${typography['title-S']};
   }
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     color: ${colors.white};
     font-size: ${typography['title-M']};
@@ -209,7 +204,6 @@ export const Link = styled.a<HeroProps>`
     padding: ${convertPxToRem(8)} 0;
   }
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     max-width: none;
     background-color: ${colors.yellowOrange};
@@ -234,7 +228,6 @@ export const Phrase = styled.p`
     margin-top: ${convertPxToRem(16)};
   }
 
-  ///////////////// VERIFICAR
   @media (max-width: ${breakpoints.tablet}) {
     font-size: ${typography['text-S']};
     color: ${colors.white};
