@@ -27,7 +27,7 @@ public class JwtService {
             .collect(Collectors.joining(" "));
         
         JwtClaimsSet claims = JwtClaimsSet.builder()
-            .issuer("self")
+            .issuer("sushi-hub")
             .issuedAt(now)
             .expiresAt(expires)
             .subject(authentication.getName())
