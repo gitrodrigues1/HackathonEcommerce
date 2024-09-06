@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import LoginForm from '../components/FormLogin/FormLogin.tsx'
-import SignUpForm from '../components/FormSignup/FormSignUp.tsx'
+import LoginForm from '../components/FormLogin/index.tsx'
+import SignUpForm from '../components/FormSignup/index.tsx'
 
 const Auth: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true)

@@ -3,6 +3,16 @@ import { colors } from '../../variables/colors'
 import { typography } from '../../variables/typography'
 import { breakpoints } from '../../variables/breakpoints'
 
+export const Countainer = styled.body`
+    font-family: "Roboto Condensed", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+`
 export const Wrapper = styled.div `
     width: 420px;
     background: transparent;
