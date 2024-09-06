@@ -1,16 +1,23 @@
-import * as T from './style';
-import { TiShoppingCart } from "react-icons/ti";
+import * as T from './style'
+import { TiShoppingCart } from "react-icons/ti"
 
-const CardMenu = () => {
+interface props {
+    nome: string;
+    descricao: string;
+    imagem: string;
+    preco: string;
+}
+
+const CardMenu: React.FC<props> = ({nome, descricao, imagem, preco}) => {
     return(
         <T.Card>
             <T.ImageBox className="img-box">
-                <img src="https://images.pexels.com/photos/13869890/pexels-photo-13869890.jpeg" alt="Imagem de comida japones"/>
+                <img src={imagem} alt="Imagem de comida japones"/>
             </T.ImageBox>
             <T.Content className='content'>
-                <h2>Temaki de Atum</h2>
-                <p> Cone de alga nori recheado com arroz japonês, atum fresco picado, cebolinha e um toque de maionese japonesa. <br /> <br /> <b>Preço R$:18,00 (unidade)</b></p>
-                <T.Carrinho href="#">
+                <h2>{nome}</h2>
+                <p> {descricao} <br /> <br /> <b>Preço R$: {preco}</b></p>
+                <T.Carrinho>
                     <TiShoppingCart className='icon'/>
                     Colocar no carrinho
                 </T.Carrinho>
