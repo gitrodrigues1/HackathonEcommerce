@@ -3,6 +3,7 @@ package com.techmaki.sushi_hub.orders.domain.entities;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.techmaki.sushi_hub.payments.domain.entities.Payment;
 import com.techmaki.sushi_hub.users.domain.entity.User;
 
 import jakarta.persistence.CascadeType;
@@ -46,9 +47,11 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderItem> orderItems;
+
+    @OneToMany(mappedBy = "order")
+    private List<Payment> payments; 
 
     @Column(name = "total_amount", nullable = false)
     private double totalAmount;
