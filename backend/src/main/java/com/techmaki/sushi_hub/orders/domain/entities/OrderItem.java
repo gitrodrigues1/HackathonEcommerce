@@ -1,6 +1,6 @@
 package com.techmaki.sushi_hub.orders.domain.entities;
 
-import com.techmaki.sushi_hub.orders.domain.dtos.CreateOrderItemRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.CreateOrderItemRequest;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
