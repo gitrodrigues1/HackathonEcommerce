@@ -1,4 +1,4 @@
-package com.techmaki.sushi_hub.orders.application.rest.controllers;
+package com.techmaki.sushi_hub.orders.application.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.techmaki.sushi_hub.orders.domain.dtos.CreateOrderRequest;
-import com.techmaki.sushi_hub.orders.domain.dtos.UpdateOrderRequest;
-import com.techmaki.sushi_hub.orders.domain.dtos.UpdateOrderStatusRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.CreateOrderRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderStatusRequest;
 import com.techmaki.sushi_hub.orders.domain.entities.Order;
 import com.techmaki.sushi_hub.orders.services.OrderService;
 

@@ -7,11 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.techmaki.sushi_hub.orders.domain.dtos.CreateOrderItemRequest;
-import com.techmaki.sushi_hub.orders.domain.dtos.CreateOrderRequest;
-import com.techmaki.sushi_hub.orders.domain.dtos.UpdateOrderItemRequest;
-import com.techmaki.sushi_hub.orders.domain.dtos.UpdateOrderRequest;
-import com.techmaki.sushi_hub.orders.domain.dtos.UpdateOrderStatusRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.CreateOrderItemRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.CreateOrderRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderItemRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderStatusRequest;
 import com.techmaki.sushi_hub.orders.domain.entities.Order;
 import com.techmaki.sushi_hub.orders.domain.entities.OrderItem;
 import com.techmaki.sushi_hub.orders.domain.entities.OrderStatus;
