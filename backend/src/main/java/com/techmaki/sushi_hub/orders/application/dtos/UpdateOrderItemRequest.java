@@ -2,10 +2,11 @@ package com.techmaki.sushi_hub.orders.application.dtos;
 
 public record UpdateOrderItemRequest(
     Long orderId,
+    Long itemId,
     Long productId,
-    int quantity,
-    double price,
-    double discount
+    Integer quantity,
+    Double price,
+    Double discount
 ) {
 
 }
