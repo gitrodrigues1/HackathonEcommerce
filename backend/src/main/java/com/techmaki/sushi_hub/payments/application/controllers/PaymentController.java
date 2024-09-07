@@ -1,4 +1,4 @@
-package com.techmaki.sushi_hub.orders.application.controllers;
+package com.techmaki.sushi_hub.payments.application.controllers;
 
 import java.net.URI;
 import java.util.List;
