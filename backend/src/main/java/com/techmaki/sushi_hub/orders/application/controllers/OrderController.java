@@ -1,6 +1,7 @@
 package com.techmaki.sushi_hub.orders.application.controllers;
 
-import org.springframework.http.HttpStatus;
+import java.net.URI;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,8 +10,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.techmaki.sushi_hub.orders.application.dtos.CreateOrderRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.OrderRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.OrderResponse;
 import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderRequest;
 import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderStatusRequest;
 import com.techmaki.sushi_hub.orders.domain.entities.Order;
@@ -27,9 +30,13 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody CreateOrderRequest request) {
+    public ResponseEntity<OrderResponse> createOrder(@RequestBody OrderRequest request) {
         var order = orderService.createOrder(request);
-        return new ResponseEntity<>(order, HttpStatus.CREATED);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(order.id())
+            .toUri();
+        return ResponseEntity.created(location).body(order);
     }
 
     @PutMapping("/{id}")

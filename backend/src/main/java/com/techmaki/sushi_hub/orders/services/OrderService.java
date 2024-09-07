@@ -1,14 +1,18 @@
 package com.techmaki.sushi_hub.orders.services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.techmaki.sushi_hub.orders.application.dtos.CreateOrderItemRequest;
-import com.techmaki.sushi_hub.orders.application.dtos.CreateOrderRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.OrderItemRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.OrderRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.OrderResponse;
 import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderItemRequest;
 import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderRequest;
 import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderStatusRequest;
@@ -38,36 +42,55 @@ public class OrderService {
         this.productRepository = productRepository;
     }
 
-    public Order createOrder(CreateOrderRequest request) {
+    public OrderResponse createOrder(OrderRequest request) {
+        
         try {
             User user = userRepository.findById(request.userId()).get();
+
             Order order = Order.builder()
                 .user(user)
                 .orderDate(LocalDateTime.now())
                 .status(OrderStatus.WAITING_PAYMENT)
-                .orderItems(request.items().stream().map(x -> checkProduct(x)).toList())
+                //.orderItems(request.items().stream().map(x -> checkProduct(x)).toList())
                 .build();
+            
+            List<OrderItem> items = new ArrayList<>();
 
+            for(OrderItemRequest i : request.items()) {
+                OrderItem item = OrderItem.builder()
+                    .order(order)
+                    .productId(i.productId())
+                    .productName(i.productName())
+                    .price(i.price())
+                    .quantity(i.quantity())
+                    .discount(i.discount())
+                    .totalPrice(i.totalPrice())
+                    .build();
+                items.add(item);
+            }
+
+            order.setOrderItems(items);
             order = calculateOrder(order);
             //search product by product id
             orderRepository.save(order);
+            orderItemRepository.saveAll(items);
 
-            orderItemRepository.saveAll(order.getOrderItems());
-            return order;
+            return order.toResponse();
         } catch (Exception e) {
             logger.error("Failed to create order.", e);
+            throw new IllegalArgumentException("Failed to create order");
         }
-        return null;
     }
 
     public Order updateOrder(Long id, UpdateOrderRequest request) {
         Order order = orderRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Order not found"));
-
-        List<OrderItem> updatedItems = updateOrderItems(order.getOrderItems(), request.orderItems());
+        List<OrderItem> databaseItems = orderItemRepository.findOrderItemByOrderId(id);
+        List<OrderItem> updatedItems = updateOrderItems(databaseItems, request.orderItems());
+        orderItemRepository.saveAll(updatedItems);
         order.setOrderItems(updatedItems);
 
-        return calculateOrder(order);
+        return orderRepository.save(calculateOrder(order));
     }
 
     public Order updateOrderStatus(UpdateOrderStatusRequest request) {
@@ -85,16 +108,21 @@ public class OrderService {
     }
 
     private static List<OrderItem> updateOrderItems(List<OrderItem> items, List<UpdateOrderItemRequest> itemsRequest) {
+        Map<Long, UpdateOrderItemRequest> requestsMap = new HashMap<>();
+        for(UpdateOrderItemRequest req : itemsRequest) {
+            requestsMap.put(req.itemId(), req);
+        }
+        
         items.forEach((item) -> {
-            itemsRequest.forEach((request) -> {
-                if(request.discount() != item.getDiscount()) 
-                    item.setDiscount(request.discount());
-                if(request.quantity() != item.getQuantity()) 
-                    item.setQuantity(request.quantity());
-                if(request.price() != item.getPrice()) 
-                    item.setPrice(request.price());
+            UpdateOrderItemRequest request = requestsMap.get(item.getItemId());
+                if(item.getItemId().equals(request.itemId())) {
+                    if(request.productId() != null) item.setProductId(request.productId());
+                    if(request.quantity()  != null) item.setQuantity(request.quantity()); 
+                    if(request.discount()  != null) item.setDiscount(request.discount());
+                    if(request.price()     != null) item.setPrice(request.price());
+                }
             });
-        });
+
         return items;
     }
 
@@ -110,7 +138,7 @@ public class OrderService {
         return order;
     }
 
-    private OrderItem checkProduct(CreateOrderItemRequest itemRequest) {
+    private OrderItem checkProduct(OrderItemRequest itemRequest) {
         Product product = productRepository.findById(itemRequest.productId())
             .orElseThrow(() -> new IllegalArgumentException("Product not found"));
         OrderItem orderItem = OrderItem.toModel(itemRequest);

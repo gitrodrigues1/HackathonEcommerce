@@ -3,6 +3,7 @@ package com.techmaki.sushi_hub.orders.domain.entities;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.techmaki.sushi_hub.orders.application.dtos.OrderResponse;
 import com.techmaki.sushi_hub.payments.domain.entities.Payment;
 import com.techmaki.sushi_hub.users.domain.entity.User;
 
@@ -57,4 +58,8 @@ public class Order {
     private double totalAmount;
 
     private LocalDateTime updatedAt;
+
+    public OrderResponse toResponse() {
+        return new OrderResponse(id, orderDate, user.getId(), user.getName(), status.getStatus(), orderItems.stream().map(OrderItem::toResponse).toList(), totalAmount);
+    }
 }

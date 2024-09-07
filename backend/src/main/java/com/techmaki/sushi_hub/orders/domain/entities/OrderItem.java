@@ -1,12 +1,14 @@
 package com.techmaki.sushi_hub.orders.domain.entities;
 
-import com.techmaki.sushi_hub.orders.application.dtos.CreateOrderItemRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.OrderItemRequest;
+import com.techmaki.sushi_hub.orders.application.dtos.OrderItemResponse;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +29,7 @@ public class OrderItem {
     private Long itemId;
 
     @ManyToOne
-    // @JoinColumn(name = "order_id", nullable = false)
+    @JoinColumn(name = "order_id")
     private Order order;
 
     @Column(name = "product_id", nullable = false)
@@ -48,7 +50,7 @@ public class OrderItem {
     @Column(name = "total_price", nullable = false)
     private double totalPrice;
 
-    public static OrderItem toModel(CreateOrderItemRequest request) {
+    public static OrderItem toModel(OrderItemRequest request) {
         return OrderItem.builder()
             .productId(request.productId())
             .quantity(request.quantity())
@@ -56,6 +58,10 @@ public class OrderItem {
             .discount(request.discount())
             .totalPrice(request.totalPrice())
             .build();
+    }
+
+    public OrderItemResponse toResponse() {
+        return new OrderItemResponse(quantity, quantity, productName, quantity, price, discount, totalPrice);
     }
 
 }
