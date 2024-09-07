@@ -1,10 +1,13 @@
 package com.techmaki.sushi_hub.products.domain;
 
+import com.techmaki.sushi_hub.products.application.rest.dtos.ProductRequest;
+
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name="products")
 @Entity
+@Table(name="products")
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,11 +22,22 @@ public class Product {
     // @Lob
     // private byte[] picture;
     private String description;
-    private String price;
+    private Double price;
 
     @Enumerated(EnumType.STRING)
     private ProductSize size;
 
+    private boolean isActive;
+
     //private boolean promotion;
+
+    public Product toModel(ProductRequest request) {
+        return Product.builder()
+            .name(request.name())
+            .description(request.description())
+            .size(request.size())
+            .price(request.price())
+            .build();
+    }
 
 }
