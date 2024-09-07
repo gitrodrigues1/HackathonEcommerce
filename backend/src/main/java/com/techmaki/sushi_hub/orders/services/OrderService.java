@@ -82,7 +82,7 @@ public class OrderService {
         }
     }
 
-    public Order updateOrder(Long id, UpdateOrderRequest request) {
+    public OrderResponse updateOrder(Long id, UpdateOrderRequest request) {
         Order order = orderRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Order not found"));
         List<OrderItem> databaseItems = orderItemRepository.findOrderItemByOrderId(id);
@@ -90,7 +90,7 @@ public class OrderService {
         orderItemRepository.saveAll(updatedItems);
         order.setOrderItems(updatedItems);
 
-        return orderRepository.save(calculateOrder(order));
+        return orderRepository.save(calculateOrder(order)).toResponse();
     }
 
     public Order updateOrderStatus(UpdateOrderStatusRequest request) {
