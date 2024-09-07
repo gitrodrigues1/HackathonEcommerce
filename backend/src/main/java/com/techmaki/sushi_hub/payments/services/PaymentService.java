@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.techmaki.sushi_hub.orders.domain.entities.Order;
 import com.techmaki.sushi_hub.orders.infrastructure.database.repositories.OrderRepository;
 import com.techmaki.sushi_hub.payments.application.dtos.CreatePaymentRequest;
+import com.techmaki.sushi_hub.payments.application.dtos.PaymentResponse;
 import com.techmaki.sushi_hub.payments.domain.entities.Payment;
 import com.techmaki.sushi_hub.payments.domain.entities.PaymentStatus;
 import com.techmaki.sushi_hub.payments.infrastructure.database.repositories.PaymentRepository;
@@ -23,7 +24,7 @@ public class PaymentService {
         this.orderRepository = orderRepository;
     }
 
-    public Payment createPayment(CreatePaymentRequest request) {
+    public PaymentResponse createPayment(CreatePaymentRequest request) {
         Order order = orderRepository.findById(request.orderId())
             .orElseThrow(() -> new IllegalArgumentException("Order not found"));
         
@@ -35,7 +36,7 @@ public class PaymentService {
             .paymentStatus(handlePaymentStatus(order.getTotalAmount(), request.amount()))
             .build();
         
-        return paymentRepository.save(payment);
+        return paymentRepository.save(payment).toResponse();
     }
 
     public List<Payment> getPaymentsById(Long id) {

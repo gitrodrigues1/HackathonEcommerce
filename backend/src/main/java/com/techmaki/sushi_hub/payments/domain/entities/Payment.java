@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.techmaki.sushi_hub.orders.domain.entities.Order;
+import com.techmaki.sushi_hub.payments.application.dtos.PaymentResponse;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -48,5 +49,15 @@ public class Payment {
 
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
+
+    public PaymentResponse toResponse() {
+        return new PaymentResponse(
+            id, 
+            order.getId(), 
+            paymentCode, 
+            paymentType.getStatus(), 
+            amount, 
+            paymentStatus.getStatus());
+    }
 
 }

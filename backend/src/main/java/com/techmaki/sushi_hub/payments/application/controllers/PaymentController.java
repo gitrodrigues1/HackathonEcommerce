@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.techmaki.sushi_hub.payments.application.dtos.CreatePaymentRequest;
+import com.techmaki.sushi_hub.payments.application.dtos.PaymentResponse;
 import com.techmaki.sushi_hub.payments.domain.entities.Payment;
 import com.techmaki.sushi_hub.payments.services.PaymentService;
 
@@ -27,11 +28,11 @@ public class PaymentController {
     }
 
     @PostMapping
-    public ResponseEntity<Payment> createPayment(@RequestBody CreatePaymentRequest request) {
-        Payment payment = paymentService.createPayment(request);
+    public ResponseEntity<PaymentResponse> createPayment(@RequestBody CreatePaymentRequest request) {
+        PaymentResponse payment = paymentService.createPayment(request);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
             .path("/{id}")
-            .buildAndExpand(payment.getId())
+            .buildAndExpand(payment.id())
             .toUri();
         return ResponseEntity.created(location).body(payment);
     }
