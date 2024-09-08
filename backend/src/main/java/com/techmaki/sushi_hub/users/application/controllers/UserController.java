@@ -3,6 +3,7 @@ package com.techmaki.sushi_hub.users.application.controllers;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.techmaki.sushi_hub.users.application.dtos.UserResponse;
 import com.techmaki.sushi_hub.users.domain.entity.User;
 import com.techmaki.sushi_hub.users.infrastructure.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,16 +46,16 @@ public class UserController {
 
     @Transactional
     @PostMapping("/subscribe")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<UserResponse> createUser(@RequestBody User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         user.setActive(true);
         repository.save(user);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(user.toResponse());
     }
 
     @Transactional
     @PutMapping
-    public ResponseEntity<User> updateUser(@RequestBody User user) {
+    public ResponseEntity<UserResponse> updateUser(@RequestBody User user) {
         User userToUpdate = repository.findById(user.getId()).orElse(null);
         if (userToUpdate == null) {
             return ResponseEntity.notFound().build();
@@ -66,7 +67,7 @@ public class UserController {
             userToUpdate.setRole(user.getRole());
             userToUpdate.setUpdatedAt(LocalDateTime.now());
             repository.save(userToUpdate);
-            return ResponseEntity.ok(userToUpdate);
+            return ResponseEntity.ok(userToUpdate.toResponse());
         }
     }
 

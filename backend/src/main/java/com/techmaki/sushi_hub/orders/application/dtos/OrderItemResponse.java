@@ -1,22 +1,13 @@
 package com.techmaki.sushi_hub.orders.application.dtos;
 
-import jakarta.validation.constraints.NotNull;
+public record OrderItemResponse (
 
-public record CreateOrderItemRequest(
-
-    @NotNull
+    int itemId,
     long productId,
-
-    @NotNull
+    String productName,
     int quantity,
-
-    @NotNull
     double price,
-
     double discount,
-
-    @NotNull
     double totalPrice
-) {
-
+    ) {
 }
