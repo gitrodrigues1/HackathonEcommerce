@@ -17,8 +17,11 @@ import com.techmaki.sushi_hub.products.application.rest.dtos.ProductRequest;
 import com.techmaki.sushi_hub.products.domain.Product;
 import com.techmaki.sushi_hub.products.services.ProductService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/products")
+@Tag(name = "Products Controller", description = "API RESTful para cadastro de usuários.")
 public class ProductController {
     
     private final ProductService productService;

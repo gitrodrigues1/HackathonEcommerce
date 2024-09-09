@@ -19,8 +19,11 @@ import com.techmaki.sushi_hub.orders.application.dtos.UpdateOrderStatusRequest;
 import com.techmaki.sushi_hub.orders.domain.entities.Order;
 import com.techmaki.sushi_hub.orders.services.OrderService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/orders")
+@Tag(name = "Orders Controller", description = "API Restful para cadastro de pedidos.")
 public class OrderController {
 
     private final OrderService orderService;

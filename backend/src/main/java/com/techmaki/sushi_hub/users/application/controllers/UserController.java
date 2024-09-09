@@ -6,6 +6,9 @@ import java.util.List;
 import com.techmaki.sushi_hub.users.application.dtos.UserResponse;
 import com.techmaki.sushi_hub.users.domain.entity.User;
 import com.techmaki.sushi_hub.users.infrastructure.repository.UserRepository;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,6 +24,7 @@ import jakarta.transaction.Transactional;
 
 @RestController
 @RequestMapping("/users")
+@Tag(name = "Users Controller", description = "API Restful para cadastro de usuários.")
 public class UserController {
     @Autowired
     private UserRepository repository;
