@@ -1,6 +1,14 @@
 import * as S from './styles'
 
 const Footer = () => {
+
+  const ScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <>
       <S.Footer>
@@ -19,7 +27,7 @@ const Footer = () => {
               <li><i className='bx bx-moon'/><span />Fechamos durante a Lua Cheia para meditação zen</li>
             </S.InfoWrapper>
           </S.InfosContainer>
-          <S.ScrollUpButton><i className='bx bxs-up-arrow' /><span />Voltar ao início</S.ScrollUpButton>
+          <S.ScrollUpButton onClick={ScrollToTop}><i className='bx bxs-up-arrow' /><span />Voltar ao início</S.ScrollUpButton>
           <S.SocialMedia>
             <li><a><i className='bx bxl-facebook-circle' /></a></li>
             <li><a><i className='bx bxl-instagram' /></a></li>

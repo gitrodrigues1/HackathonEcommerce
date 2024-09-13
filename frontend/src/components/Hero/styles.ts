@@ -15,7 +15,6 @@ export const Container = styled.section`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto ${convertPxToRem(120)};
   width: 100%;
-  min-height: 85vh;
   overflow: hidden;
   background-color: ${colors.white};
 

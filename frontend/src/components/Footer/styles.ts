@@ -67,7 +67,6 @@ export const ScrollUpButton = styled.button`
   }
 `
 
-
 export const InfosContainer = styled.div`
   display: flex;
   align-items: center;
@@ -142,15 +141,15 @@ export const SocialMedia = styled.ul`
 
   li {
     margin-right: ${convertPxToRem(24)};
-    transition: transform .7s ease-in-out;
+    transition: all .6s ease-in-out;
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     &:hover {
       transform: scale(1.15);
       color: ${colors.yellowOrange};
-    }
-
-    &:last-child {
-      margin-right: 0;
     }
   }
 
