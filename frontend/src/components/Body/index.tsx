@@ -1,23 +1,22 @@
 import * as S from './styles'
 
+import Carousel from '../Carousel'
+import CardsContainer from '../CardsContainer'
+
 const Body = () => {
   return (
     <S.Container>
       <S.LeftSide className='side'>
         <S.SideContainer className='left'>
           <S.ContentLeft>
-            ADICIONAR CAROUSEL AQUI<br/>
-            ADICIONAR CAROUSEL AQUI<br/>
-            ADICIONAR CAROUSEL AQUI<br/>
+            <Carousel />
           </S.ContentLeft>
         </S.SideContainer>
       </S.LeftSide>
       <S.RightSide className='side'>
         <S.SideContainer className='right'>
           <S.ContentRight>
-            ADICIONAR CARDS DE CATEGORIAS AQUI<br/>
-            ADICIONAR CARDS DE CATEGORIAS AQUI<br/>
-            ADICIONAR CARDS DE CATEGORIAS AQUI<br/>
+            <CardsContainer />
           </S.ContentRight>
         </S.SideContainer>
       </S.RightSide>
