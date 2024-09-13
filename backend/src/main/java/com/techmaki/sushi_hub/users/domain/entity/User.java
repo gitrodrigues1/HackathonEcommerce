@@ -2,8 +2,10 @@ package com.techmaki.sushi_hub.users.domain.entity;
 
 import java.time.LocalDateTime;
 
+import com.techmaki.sushi_hub.carts.domain.entities.Cart;
 import com.techmaki.sushi_hub.users.application.dtos.UserResponse;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -12,6 +14,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -52,6 +55,9 @@ public class User {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
 
     public User(String name, String email, String password, UserRole role) {
         this.name = name;
