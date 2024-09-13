@@ -8,7 +8,7 @@ import lombok.Builder;
 @Builder
 public record OrderRequest(
     
-    @NotNull
+    @NotNull(message = "User cannot be null")
     Long userId,
 
     List<OrderItemRequest> items
