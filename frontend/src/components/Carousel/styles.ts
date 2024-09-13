@@ -18,7 +18,12 @@ export const Image = styled.img<CarouselProps>`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: ${props => props.$isActive ? 'inline' : 'none'};
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: ${(props) => (props.$isActive ? 1 : 0)};
+  transition: opacity 0.8s ease-in-out;
+  z-index: ${(props) => (props.$isActive ? 1 : 0)};
 `
 
 export const Arrow = styled.a<CarouselProps>`
@@ -56,6 +61,7 @@ export const DotContainer = styled.div`
   left: 50%;
   transform: translateX(-50%);
   background-color: transparent;
+  z-index: 3;
 `
 
 export const Dot = styled.span<CarouselProps>`

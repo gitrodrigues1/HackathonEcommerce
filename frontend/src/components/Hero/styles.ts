@@ -13,7 +13,7 @@ import { HeroProps } from './interface'
 export const Container = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto ${convertPxToRem(120)};
+  grid-template-rows: auto ${convertPxToRem(160)};
   width: 100%;
   overflow: hidden;
   background-color: ${colors.white};

@@ -9,12 +9,12 @@ import temakis from '../../assets/images/categories/temakis.jpg'
 const CardsContainer = () => {
   return (
     <Container>
-      <CategoryCard backgroundImage={combos}/>
-      <CategoryCard backgroundImage={drinks}/>
-      <CategoryCard backgroundImage={temakis}/>
-      <CategoryCard backgroundImage={combos}/>
-      <CategoryCard backgroundImage={drinks}/>
-      <CategoryCard backgroundImage={temakis}/>
+      <CategoryCard backgroundImage={combos}>Combinados</CategoryCard>
+      <CategoryCard backgroundImage={drinks}>Bebidas</CategoryCard>
+      <CategoryCard backgroundImage={temakis}>Temakis</CategoryCard>
+      <CategoryCard backgroundImage={combos}>Combinados</CategoryCard>
+      <CategoryCard backgroundImage={drinks}>Bebidas</CategoryCard>
+      <CategoryCard backgroundImage={temakis}>Temakis</CategoryCard>
     </Container>
   )
 }
