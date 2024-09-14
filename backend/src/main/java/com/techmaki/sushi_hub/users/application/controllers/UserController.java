@@ -7,6 +7,7 @@ import com.techmaki.sushi_hub.users.application.dtos.UserResponse;
 import com.techmaki.sushi_hub.users.domain.entity.User;
 import com.techmaki.sushi_hub.users.infrastructure.repository.UserRepository;
 
+import com.techmaki.sushi_hub.users.services.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,17 +30,20 @@ public class UserController {
     @Autowired
     private UserRepository repository;
 
-    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+    @Autowired
+    UserService userService;
+
+
 
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
-        List<User> users = repository.findAllByActiveTrue();
+        List<User> users = userService.getUsers();
         return ResponseEntity.ok(users);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
-        User user = repository.findById(id).orElse(null);
+        User user = userService.getUser(id);
         if (user == null) {
             return ResponseEntity.notFound().build();
         }
@@ -51,26 +55,17 @@ public class UserController {
     @Transactional
     @PostMapping("/subscribe")
     public ResponseEntity<UserResponse> createUser(@RequestBody User user) {
-        user.setPassword(encoder.encode(user.getPassword()));
-        user.setActive(true);
-        repository.save(user);
-        return ResponseEntity.ok(user.toResponse());
+        return ResponseEntity.ok(userService.createUser(user).toResponse());
     }
 
     @Transactional
     @PutMapping
     public ResponseEntity<UserResponse> updateUser(@RequestBody User user) {
-        User userToUpdate = repository.findById(user.getId()).orElse(null);
+        User userToUpdate = userService.updateUser(user);
         if (userToUpdate == null) {
             return ResponseEntity.notFound().build();
         }
         else {
-            userToUpdate.setName(user.getName());
-            userToUpdate.setEmail(user.getEmail());
-            userToUpdate.setPassword(user.getPassword());
-            userToUpdate.setRole(user.getRole());
-            userToUpdate.setUpdatedAt(LocalDateTime.now());
-            repository.save(userToUpdate);
             return ResponseEntity.ok(userToUpdate.toResponse());
         }
     }
@@ -78,12 +73,11 @@ public class UserController {
     @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable Long id) {
-        User user = repository.findById(id).orElse(null);
+        User user = userService.deleteUser(id);
         if (user == null) {
             return ResponseEntity.notFound().build();
         }
         else {
-            repository.delete(user);
             return ResponseEntity.ok(user);
         }
     }
