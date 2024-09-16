@@ -17,13 +17,13 @@ class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-    void findAllByActiveTrue() {
+    public void findAllByActiveTrue() {
         List<User> activeUsers = userRepository.findAllByActiveTrue();
         assertThat(activeUsers).isNotEmpty();
     }
 
     @Test
-    void findByEmail() {
+    public void findByEmail() {
         Optional<User> user = userRepository.findByEmail("john.doe@example.com");
         assertThat(user).isPresent();
         user.ifPresent(u -> assertThat(u.getEmail()).isEqualTo("john.doe@example.com"));
