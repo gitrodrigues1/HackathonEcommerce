@@ -1,8 +1,19 @@
 import styled from 'styled-components'
+
 import { colors } from '../../variables/colors'
 import { typography } from '../../variables/typography'
 import { breakpoints } from '../../variables/breakpoints'
 
+export const Countainer = styled.body`
+    font-family: "Roboto Condensed", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+`
 export const Wrapper = styled.div `
     width: 450px;
     background: transparent;
@@ -51,7 +62,7 @@ export const InputBox = styled.div `
         color: ${colors.white};
     } input:focus ~ .icon {
         color: ${colors.yellowOrange};
-    } 
+    }
 `
 export const StyledBnt = styled.button `
     width: 100%;
@@ -69,7 +80,7 @@ export const StyledBnt = styled.button `
         background: ${colors.yellowOrange};
         color: ${colors.white};
         transition: .3s ease-in;
-    } 
+    }
 `
 export const Login = styled.div `
     font-size: ${typography['link-S']};

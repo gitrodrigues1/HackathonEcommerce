@@ -1,0 +1,74 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "Sushi de Salmão",
+            "descricao": "Arroz japonês temperado, fatias frescas de salmão, nori, e um toque de wasabi e gengibre.",
+            "imagem": "https://images.pexels.com/photos/271715/pexels-photo-271715.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "45,00 (10 unidades)"
+        },
+        {
+            "id": 2,
+            "nome": "Temaki de Atum",
+            "descricao": "Cone de alga nori recheado com arroz japonês, atum fresco picado, cebolinha e um toque de maionese japonesa.",
+            "imagem": "https://images.pexels.com/photos/27662758/pexels-photo-27662758/free-photo-of-legumes-vegetais-restaurante-jantar.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "18,00 (unidade)"
+        },
+        {
+            "id": 3,
+            "nome": "Yakissoba de Frango",
+            "descricao": "Macarrão de trigo salteado com frango, vegetais frescos, como brócolis, cenoura e repolho, em um molho de soja e gengibre.",
+            "imagem": "https://images.pexels.com/photos/27953852/pexels-photo-27953852/free-photo-of-refeicao-comida-frango-galinha.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "30,00"
+        },
+        {
+            "id": 4,
+            "nome": "Sashimi de Atum",
+            "descricao": "Fatias finas de atum fresco, servidas com molho shoyu, wasabi e gengibre em conserva.",
+            "imagem": "https://images.pexels.com/photos/17308491/pexels-photo-17308491/free-photo-of-comida-alimento-refeicao-placa.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "50,00 (12 fatias)"
+        },
+        {
+            "id": 5,
+            "nome": "Gyoza",
+            "descricao": "Pasteizinhos de massa fina recheados com carne de porco e vegetais, servidos com molho agridoce.",
+            "imagem": "https://images.pexels.com/photos/4857728/pexels-photo-4857728.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "20,00 (6 unidades)"
+        },
+        {
+            "id": 6,
+            "nome": "Tempurá de Camarão",
+            "descricao": "Camarões grandes empanados em uma massa leve e crocante, fritos e servidos com molho de soja e gengibre.",
+            "imagem": "https://images.pexels.com/photos/8953713/pexels-photo-8953713.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "35,00 (6 unidades)"
+        },
+        {
+            "id": 7,
+            "nome": "Onigiri",
+            "descricao": "Bolinho de arroz japonês recheado com salmão grelhado e envolto em alga nori.",
+            "imagem": "https://images.pexels.com/photos/7262929/pexels-photo-7262929.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "12,00 (unidade)"
+        },
+        {
+            "id": 8,
+            "nome": "Udon",
+            "descricao": "Sopa de macarrão grosso de trigo em caldo quente, servida com pedaços de frango, cebolinha e tempurá.",
+            "imagem": "https://images.pexels.com/photos/12669949/pexels-photo-12669949.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "28,00"
+        },
+        {
+            "id": 9,
+            "nome": "Takoyaki",
+            "descricao": "Bolinhos de polvo cozidos em chapa, cobertos com molho takoyaki, maionese japonesa, alga nori em pó e flocos de bonito seco.",
+            "imagem": "https://images.pexels.com/photos/25078435/pexels-photo-25078435/free-photo-of-comida-alimento-refeicao-mulher.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "22,00 (6 unidades)"
+        },
+        {
+            "id": 10,
+            "nome": "Mochi",
+            "descricao": "Bolinho de arroz glutinoso recheado com pasta de feijão doce (anko), com uma textura macia e elástica.",
+            "imagem": "https://images.pexels.com/photos/6646369/pexels-photo-6646369.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "preco": "15,00 (2 unidades)"
+        }
+    ]
+}

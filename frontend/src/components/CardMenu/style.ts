@@ -7,9 +7,9 @@ export const Card = styled.div`
     width: 350px;
     height: 300px;
     position: relative;
-    background-color: ${colors.white};
+    background-color: ${colors.black};
     border-radius: 20px;
-    box-shadow: 0 35px 80px ${colors.black};
+    
     transition: .5s;
     font-family: "Roboto Condensed", system-ui;
     &:hover {
@@ -37,6 +37,7 @@ export const ImageBox = styled.div`
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
+    color: ${colors.white};
     gap: 18px;
     position: absolute;
     top: 255px;
@@ -48,7 +49,7 @@ export const Content = styled.div`
     transition: .5s;
     h2 {
         font-size: 1.7rem;
-        font-family: "New Amsterdam", system-ui;
+        font-family: 'Roboto Condensed', sans-serif;
     } p {
         font-size: 1.05rem;
         line-height: 1.2rem;

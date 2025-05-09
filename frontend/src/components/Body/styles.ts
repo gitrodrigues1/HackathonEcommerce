@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 import { colors } from '../../variables/colors'
+import { breakpoints } from '../../variables/breakpoints'
 
 import convertPxToRem from '../../utils/convertPxToRem'
-import { breakpoints } from '../../variables/breakpoints'
 
 
 export const Container = styled.section`
@@ -14,7 +14,7 @@ export const Container = styled.section`
   .side {
     display: flex;
     align-items: center;
-    padding: ${convertPxToRem(24)} 0;
+  /*   padding: ${convertPxToRem(0)} 0; */
   }
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -58,12 +58,13 @@ export const SideContainer = styled.div`
 
   @media (max-width: ${breakpoints.desktop}) {
     width: 90%;
+    max-width: none;
   }
 `
 
 export const ContentLeft = styled.div`
-  padding-right: ${convertPxToRem(24)};
   font-family: 'Roboto Condensed', sans-serif;
+  width: 100%;
 
   @media (max-width: ${breakpoints.tablet}) {
     padding-right: 0;
@@ -72,8 +73,8 @@ export const ContentLeft = styled.div`
 `
 
 export const ContentRight = styled.div`
-  padding-left: ${convertPxToRem(24)};
   font-family: 'Roboto Condensed', sans-serif;
+  width: 100%;
 
   @media (max-width: ${breakpoints.tablet}) {
     padding-left: 0;

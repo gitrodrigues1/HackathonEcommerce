@@ -19,8 +19,4 @@ export const GlobalStyle = createGlobalStyle`
   list-style: none;
   text-decoration: none;
   }
-
-  .container {
-    width: 80%;
-  }
 `
